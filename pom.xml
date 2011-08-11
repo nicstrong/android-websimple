@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.codepoets</groupId>
+    <artifactId>android-websimple-parent</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>Android Web Simple Parent</name>
+    <description>The parent POM for Android Web Simple project</description>
+
+    <modules>
+        <module>android-websimple</module>
+        <module>android-websimple-tests</module>
+     </modules>
+
+    <dependencyManagement>
+        <dependencies>
+             <dependency>
+                <groupId>com.google.android</groupId>
+                <artifactId>android</artifactId>
+                <version>2.2.1</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.google.android</groupId>
+                <artifactId>android-test</artifactId>
+                <version>2.2.1</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <build>
+         <finalName>${project.artifactId}</finalName>
+        <resources>
+            <resource>
+                <directory>${project.basedir}/res</directory>
+                <filtering>true</filtering>
+                <targetPath>${project.build.directory}/filtered-res</targetPath>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>${project.basedir}/res</directory>
+                <filtering>false</filtering>
+                <targetPath>${project.build.directory}/filtered-res</targetPath>
+                <excludes>
+                    <exclude>**/*.xml</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <directory>${project.basedir}</directory>
+                <filtering>true</filtering>
+                <targetPath>${project.build.directory}/filtered-manifest</targetPath>
+                <includes>
+                    <include>AndroidManifest.xml</include>
+                </includes>
+            </resource>
+        </resources>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <!-- version 2.3 defaults to java 1.5, so no further configuration needed-->
+                    <version>2.3.2</version>
+                    <configuration>
+                      <source>1.6</source>
+                      <target>1.6</target>
+                    </configuration>
+               </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>

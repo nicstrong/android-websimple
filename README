@@ -1,0 +1,3 @@
+A very simple web framework that runs on Android Devices based on the built in Apache HTTP Core. 
+
+I developed this primarily for writing development tools on the Android Platform (see https://github.com/nicstrong/android-browser) and as such there is no consideration for anything that you would expect out of a normal web server (e.g security, standards compliance). Please bare that in mind.

@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface FileSystem {
 	FileSystemFile root() throws IOException;
-	boolean exists(String path);
-	FileSystemFile getFile(String path);
+	boolean exists(String path) throws IOException;
+	FileSystemFile getFile(String path) throws IOException;
 
 	InputStream open(String path) throws IOException;
 }

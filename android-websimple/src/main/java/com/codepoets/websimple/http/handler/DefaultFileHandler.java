@@ -26,9 +26,9 @@ public class DefaultFileHandler extends BaseHttpRequestHandler {
 	public void handleGet(String path, HttpRequest request, HttpResponse response, HttpContext context) {
 		logger.info("GET {}", path);
 
-		FileSystemFile file = fileSystem.getFile(path);
-		logger.debug("Found file  {}", file);
 		try {
+			FileSystemFile file = fileSystem.getFile(path);
+			logger.debug("Found file  {}", file);
 			long length = file.length();
 			logger.debug("{} is {} bytes", file.getPath(), length);
 			InputStreamEntity entity = new InputStreamEntity(fileSystem.open(path), length);
@@ -44,7 +44,7 @@ public class DefaultFileHandler extends BaseHttpRequestHandler {
 			response.setEntity(entity);
 		} catch (IOException e) {
 			logger.error("IOException reading " + path, e);
-			response.setStatusCode(HttpStatus.SC_FORBIDDEN);
+			response.setStatusCode(HttpStatus.SC_NOT_FOUND);
 		}
 
 		response.setStatusCode(HttpStatus.SC_OK);

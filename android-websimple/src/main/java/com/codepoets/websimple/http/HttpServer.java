@@ -1,7 +1,7 @@
 package com.codepoets.websimple.http;
 
 import android.content.Context;
-import com.codepoets.websimple.filesystem.AssetManagerFileSystem;
+import com.codepoets.websimple.filesystem.assetmanager.AssetManagerFileSystem;
 import com.codepoets.websimple.filesystem.FileSystem;
 import com.codepoets.websimple.http.handler.DefaultHttpRequestHandlerResolver;
 import org.apache.http.impl.DefaultConnectionReuseStrategy;
